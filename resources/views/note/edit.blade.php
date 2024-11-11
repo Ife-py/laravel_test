@@ -1,7 +1,10 @@
-<x-app-layout>
+@extends('layouts.app')
+@section('content')
     <div class="container">
-        <h1>Edit your note</h1>
         <div class="card">
+            <div class="card-header mb-3">
+                <h1>Edit your note</h1>
+            </div>
             <div class="card-body">
                 <form action="{{ route('note.update',$note) }}" method="POST">
                     @csrf
@@ -10,12 +13,12 @@
                         {{ $note->note }}
                     </textarea>
                     <div class="note-button">
-                        <a href="{{ route('note.index') }}" class="note-cancel-button">Cancel</a>
+                        <a href="{{ route('note.index') }}" class="btn btn-danger">Cancel</a>
                         <button type="submit" class="btn btn-success">Save</button>
                     </div>
                 </form>
             </div>
-            
+
         </div>
     </div>
-</x-app-layout >
+@endsection
